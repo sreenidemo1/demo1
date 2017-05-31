@@ -1,0 +1,46 @@
+spring:
+    profiles:
+        active: local
+    datasource:
+            dataSourceClassName: com.mysql.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/mydb
+            databaseName:
+            serverName:
+            username: root
+            password: admin
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5Dialect
+        database: MySQL
+        openInView: true
+        show_sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+
+---
+
+spring:
+    profiles: mem
+    datasource:
+            dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+            url: jdbc:h2:mem:myDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE
+            databaseName:
+            serverName:
+            username:
+            password:
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        openInView: true
+        show_sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: create-drop
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
