@@ -84,7 +84,7 @@ $(document).ready(function() {
           if (cellValue == null) {cellValue = "";}
           else if($.isArray(cellValue)) {
             cellValue = cellValue.map(function(elem){
-                return JSON.strigitngify(elem);
+                return JSON.stringify(elem);
             }).join(",")
           }
           row$.append($('<td/>').html(cellValue));
